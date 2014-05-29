@@ -1,0 +1,119 @@
+/*
+	@autor: 	Khriz Enríquez, hecho con mucho <3 y ganas
+	@contacto: 	@khrizenriquez
+	@copyright: 22/05/2014
+*/
+
+/*	importando los elementos necesarios de archivos externos*/
+@import url("../normalize.css")
+@import url("http://fonts.googleapis.com/css?family=Roboto:300")
+@import url("../bootstrap.min.css")
+@import url("../../js/css/grumble.min.css")
+@import url("../../js/css/crumble.css")
+@import url("../elusive-webfont.css")
+
+colorBarra = #0099CC
+fondoTransparente = rgba(0, 153, 204, 0)
+fondoNoTransparente = rgba(0, 153, 204, 1)
+colorFb = #3B5998
+colorMensaje = #e74c3c
+
+//	selectores generales
+*
+	font-family 'Roboto', sans-serif
+body, html, #divMapa
+	height 100%
+	margin 0px
+	padding 0px
+	z-index 1
+textarea
+	resize none
+//	selectores por id
+#btnMenu
+	transition all .25s ease
+#divImagenLogoE
+	display inline-block
+	text-align center
+	vertical-align top
+	width 100%
+	div
+		display inline-block
+		margin .5%
+		text-align center
+		vertical-align top
+		width 80%
+		i, img
+			display inline-block
+			vertical-align top
+			margin .5%
+		img
+			font-size 15em
+			height 200px !important
+			padding auto
+			position relative
+			text-align center
+			transition all .25s linear
+			width 100%
+			z-index 0
+		i
+			//background blancoNoTanBlanco
+			color colorMensaje
+			font-size 1.5em
+			position absolute
+			z-index 1
+			&:hover
+				background white
+				cursor pointer
+	&:hover
+		transition all .25s linear
+#formImg
+	text-align center
+	fieldset
+		.form-group
+			text-align left
+		button
+			font-size 1.5em
+			width 45%
+#navMenu
+	background fondoTransparente
+	height 45px
+	position absolute
+	text-align right
+	top 0
+	transition all .5s linear
+	width 100%
+	z-index 2
+	button
+		background colorBarra
+		color white
+		transition all .25s ease
+		&:hover
+			background #202020
+			transition all .25s ease
+		i
+			font-size 2em
+//	selectores por clases
+.divMsj, .divMsjSesion
+	color #e74c3c
+	font-size 1.5em
+	display block
+	text-align center
+	width 100%
+.mostrandoMenu
+	background fondoNoTransparente
+	transition all .25s linear
+.Ingresado, .sinIngresar
+	display none
+.sesion
+	button
+		background colorFb
+		font-size 3em
+		width 100%
+		i
+			color white
+@media only screen and (max-width: 700px) and (min-width: 450px)
+	#divImagenLogoE
+		div
+			width 70%
+			img
+			height 300px !important

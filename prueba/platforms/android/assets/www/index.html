@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es-gt">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<title>Compárteme</title>
+		<script src="js/modernizr.js"></script>
+		<link rel="stylesheet" href="css/propios/general.css" />
+	</head>
+	<body>
+<script>
+/*var accessToken;
+
+FB.options({
+    appId: '662143983862826'
+});*/
+      /*window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 662143983862826,
+          status     : true,
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      FB.login(function(response) {
+	   if (response.authResponse) {
+	     console.log('Welcome!  Fetching your information.... ');
+	     FB.api('/me', function(response) {
+	       console.log('Good to see you, ' + response.name + '.');
+	     });
+	   } else {
+	     console.log('User cancelled login or did not fully authorize.');
+	   }
+	 });
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/es_LA/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));*/
+    </script>
+	
+		<!-- <ol id="tour" style="display: none;">
+			<li data-target="#btnMenu" data-angle="230" data-options="distance: 3">
+				Puedes presionar el menú para que veas las opciones que tienes disponible.
+			</li>
+		</ol> -->
+		
+		<nav id="navMenu">
+			<!-- <button class="btn">
+				<i class="el-icon-torso"></i>
+			</button>
+			<button class="btn">
+				<i class="el-icon-map-marker"></i>
+			</button> -->
+
+			<!-- botones que representan cuando no esta logueado un usuario -->
+			<button class="btn sinIngresar" onclick="return mostrandoModal ( );">
+				<i class="el-icon-torso"></i>
+			</button>
+			<button class="btn sinIngresar" onclick="return localizar();">
+				<i class="el-icon-map-marker"></i>
+			</button>
+
+			<!-- botones que representan cuando si esta logueado un usuario -->
+			<button class="btn Ingresado" onclick="return mostrandoCompartirImg ( );">
+				<i class="el-icon-picture"></i>
+			</button>
+			<button class="btn Ingresado" onclick="return localizar();">
+				<i class="el-icon-map-marker"></i>
+			</button>
+
+			<button class="btn" id="btnMenu" data-opciones='0'>
+				<!-- <i class="el-icon-th-large"></i> -->
+				<i class="el-icon-lines"></i>
+			</button>
+
+		</nav>
+
+		<div id="divMapa"></div>
+
+		<!-- área de modales -->
+		<div class="modal fade" id="modalSesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Inicia sesión</h4>
+					</div>
+					<div class="modal-body">
+						<div class="sesion">
+							<button id="btnIniciarSesion" class="btn" onclick="return iniciandoSesion();">
+								<i class="el-icon-facebook"></i>
+							</button>
+							<div class="divMsjSesion"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modalCompartirImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Comparte tu imágen</h4>
+					</div>
+					<div class="modal-body">
+						<form id="formImg" action="subiendo-imagenes/" method="post" enctype="multipart/form-data">
+							<fieldset>
+								<div class="form-group">
+									<label>Selecciona la imágen que deseas</label>
+									<br />
+									<button id="btnSeleccionarLogo" type="button" class="btn btn-primary">
+										<i class="el-icon-picture"></i>
+									</button>
+									<button id="btnSubirImg" type="submit" class="btn btn-success">Subir</button>
+
+									<div class="progressLogoE progress progress-striped active bar">
+										<div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+
+									<div id="divContenedorLogo">
+										<input type="file" id="txtImg" name="file[]" single />
+										<div id="divImagenLogoE"></div>
+									</div>
+
+									<input type="hidden" name="txtSubirImg" value="1" />
+									<input type="hidden" name="txtIdEmpresa" value="0" />
+
+								</div>
+								<div class="form-group">
+									<label>Cuentanos algo importante de esta imágen</label>
+									<textarea class="form-control" id="txtAreaImg" cols="30" rows="3" placeholder="Cuentanos algo importante de esta imágen" maxlength="200" onkeyup="cuentaPalabras ( 200, this, document.getElementById( 'spanMsj' ) );"></textarea>
+								</div>
+								<span id="spanMsj"></span>
+								<br />
+								<button id="btnCompartir" type="button" class="btn btn-success btn-lg">Compartir</button>
+								<div class="divMsj"></div>
+							</fieldset>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fin de área de modales -->
+
+		<script src="cordova.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>-->
+		<script src="js/jquery.grumble.min.js"></script>
+		<script src="js/jquery.crumble.js"></script>
+		<script src="js/propios/manipulando.js"></script>
+	</body>
+</html>

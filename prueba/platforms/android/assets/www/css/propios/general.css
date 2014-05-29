@@ -1,0 +1,134 @@
+/*
+	@autor: 	Khriz Enríquez, hecho con mucho <3 y ganas
+	@contacto: 	@khrizenriquez
+	@copyright: 22/05/2014
+*/
+/*	importando los elementos necesarios de archivos externos*/
+@import url("../normalize.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto:300");
+@import url("../bootstrap.min.css");
+@import url("../../js/css/grumble.min.css");
+@import url("../../js/css/crumble.css");
+@import url("../elusive-webfont.css");
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body,
+html,
+#divMapa {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index: 1;
+}
+textarea {
+  resize: none;
+}
+#btnMenu {
+  transition: all 0.25s ease;
+}
+#divImagenLogoE {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+#divImagenLogoE div {
+  display: inline-block;
+  margin: 0.5%;
+  text-align: center;
+  vertical-align: top;
+  width: 80%;
+}
+#divImagenLogoE div i,
+#divImagenLogoE div img {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.5%;
+}
+#divImagenLogoE div img {
+  font-size: 15em;
+  height: 200px !important;
+  padding: auto;
+  position: relative;
+  text-align: center;
+  transition: all 0.25s linear;
+  width: 100%;
+  z-index: 0;
+}
+#divImagenLogoE div i {
+  color: #e74c3c;
+  font-size: 1.5em;
+  position: absolute;
+  z-index: 1;
+}
+#divImagenLogoE div i:hover {
+  background: #fff;
+  cursor: pointer;
+}
+#divImagenLogoE:hover {
+  transition: all 0.25s linear;
+}
+#formImg {
+  text-align: center;
+}
+#formImg fieldset .form-group {
+  text-align: left;
+}
+#formImg fieldset button {
+  font-size: 1.5em;
+  width: 45%;
+}
+#navMenu {
+  background: rgba(0,153,204,0);
+  height: 45px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  transition: all 0.5s linear;
+  width: 100%;
+  z-index: 2;
+}
+#navMenu button {
+  background: #09c;
+  color: #fff;
+  transition: all 0.25s ease;
+}
+#navMenu button:hover {
+  background: #202020;
+  transition: all 0.25s ease;
+}
+#navMenu button i {
+  font-size: 2em;
+}
+.divMsj,
+.divMsjSesion {
+  color: #e74c3c;
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.mostrandoMenu {
+  background: #09c;
+  transition: all 0.25s linear;
+}
+.Ingresado,
+.sinIngresar {
+  display: none;
+}
+.sesion button {
+  background: #3b5998;
+  font-size: 3em;
+  width: 100%;
+}
+.sesion button i {
+  color: #fff;
+}
+@media only screen and (max-width: 700px) and (min-width: 450px) {
+  #divImagenLogoE div {
+    width: 70%;
+img
+    height: 300px !important;
+  }
+}
